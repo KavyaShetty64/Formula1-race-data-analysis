@@ -13,7 +13,7 @@ ORDER BY avg_points DESC
 
 -- COMMAND ----------
 
--- Top 10 drivers visualized in line chart
+-- Top 10 drivers can be visualized in line chart
 SELECT race_year, 
        driver_name,
        COUNT(*) AS total_races,
@@ -26,17 +26,5 @@ ORDER BY race_year, avg_points DESC
 
 -- COMMAND ----------
 
--- Top 10 drivers visualized in area chart
-SELECT race_year, 
-       driver_name,
-       COUNT(*) AS total_races,
-       SUM(calculated_points) AS total_points,
-       AVG(calculated_points) AS avg_points
-  FROM f1_presentation.calculated_race_results
- WHERE driver_name IN (SELECT driver_name FROM v_dominant_drivers WHERE driver_rank <= 10)
-GROUP BY race_year, driver_name
-ORDER BY race_year, avg_points DESC
-
--- COMMAND ----------
 
 
