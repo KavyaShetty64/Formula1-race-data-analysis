@@ -1,0 +1,1 @@
+In this project, Formula1 race data from year 1950 to 2021 is analyzed to find dominant driver and team. The data is transformed using databricks and written back to container in delta format. The data is queried to find dominant driver and team.
